@@ -1,0 +1,558 @@
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+:root {
+    --burgandy:  #7B184C;
+    --blue: #003366;
+    --navy: #00001E;
+    --green: #007377;
+    --yellow: #EBAD2E;
+    --light: #F1F1F3;
+    --gold: #8F7242;
+    --gray: #C9C9C9;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Gotham Light';
+    src: url('../fonts/Gotham-Light.woff') format('woff');
+    font-weight: lighter;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham Bold';
+    src: url('../fonts/Gotham-Bold.woff') format('woff');
+    font-weight: bold;
+    font-display: swap;
+}
+
+@media not (prefers-reduced-motion:reduce) {
+    main { scroll-behavior: smooth; }
+  }
+
+/* Accessibiliy Feature */
+@media screen and
+  (prefers-reduced-motion: reduce), 
+  (update: slow) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important; /* Hat tip Nick/cssremedy (https://css-tricks.com/revisiting-prefers-reduced-motion-the-reduced-motion-media-query/#comment-1700170) */
+    transition-duration: 0.001ms !important;
+  }
+}
+
+
+
+body {
+    font-family: 'Gotham Light', Arial, sans-serif;
+    color: #000;
+    width: 100%;
+}
+
+a {
+    color: var(--light);
+    color: #F1F1F3;
+    transition: color .5s linear;
+}
+
+a:hover {
+    color: var(--navy);
+    color: #00001E;
+}
+
+a:visited {
+    color: var(--gold);
+    color: #8F7242;
+}
+
+.teens a {
+    color: var(--blue);
+    color: #003366;
+}
+
+.teens a:hover {
+    color: var(--gold);
+}
+
+
+main {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+
+.hero {
+    background-image: url(../images/BRK_Timeline_Hero.png);
+    background-image: url(../images/hero_circles.png), linear-gradient(90deg, rgb(0, 51, 102, .73) 0%,  rgb(123, 24,76, .73)100%), url(../images/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover, auto, cover;
+    background-position: center, center, 50% 50%;
+    top: 0;
+    color: var(--light);
+    color: #F1F1F3;
+    display: flex;
+
+    align-content: center;
+    align-items: center;
+    height: 100vh;
+    scroll-snap-align: start;
+}
+
+.hero header {
+    align-self: flex-start;
+}
+
+
+.logo img {
+    padding: 1em 0 0 2em;
+    width: 175px;
+    height: auto;
+}
+
+.title {
+    padding: 5em 0 0 .25em;
+    font: Bold 3.2em 'Gotham Bold';
+    color: var(--light);
+    color: #F1F1F3;
+    line-height: 1;
+}
+
+.sub-title {  
+    padding-left: 1em;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+
+.decades {
+    display: none;
+}
+
+.decades ul {
+    margin: 0 3em;
+    text-align: right;
+}
+
+.decades li {
+    text-align: right;
+    list-style: none;
+    margin: 2em 0;
+    width: 4em;
+}
+
+.decades a {
+    color: var(--gold);
+    color: #8F7242;
+    font-size: 1.6em;
+    transition: all .2s ease-in-out;
+    line-height: 1.6em;
+    padding: 1em 1em;
+}
+
+.decades a:hover {
+    color: var(--light);
+    color: #F1F1F3;
+    font-size: 1.8em;
+    line-height: 1.6em;
+}
+
+.arrows {	
+    display: none;
+}
+section {
+    width: 100vw;
+}
+
+.event {
+    scroll-snap-align: start;
+    height: 100vh;
+}
+.seventies  .event{
+    background-color: var(--gold);
+    background-color: #8F7242;
+    background-image: url(../images/logo_sq.png), url(../images/Decades_70.png);
+}
+
+.eighties  .event{
+    background-color: var(--blue);
+    background-color: #003366;
+    background-image: url(../images/logo_sq.png), url(../images/Decades_80.png);
+}
+
+.nineties .event {
+    background-color: var(--burgandy);
+    background-color: #7B184C;
+    background-image: url(../images/logo_sq.png), url(../images/Decades_90.png);
+}
+
+.aughts .event{
+    background-color: var(--green);
+    background-color: #007377;
+    background-image: url(../images/logo_sq.png), url(../images/Decades_00.png);
+}
+
+.teens .event{
+    background-color: var(--gray);
+    background-color: #C9C9C9;
+    background-image: url(../images/logo_sq.png), url(../images/Decades_10.png);
+}
+
+.twenties {
+    min-height: 100vh;
+}
+
+.twenties .event{
+    background-color: var(--gold);
+    background-color: #8F7242;
+    background-image: url(../images/logo_sq.png), url(../images/Decades_20.png);
+}
+
+.event {
+    background-repeat: no-repeat, no-repeat;
+    background-size: 20%, cover;
+    background-position:  top 1.5em left 1.5em, center; 
+    background-attachment: fixed;
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+    .event {
+    background-attachment: scroll;
+    }
+  }
+
+
+
+.decade {
+    display: flex;
+    align-content: space-between;
+    flex-direction: column;
+    text-align: center;
+}
+
+.event {
+    align-self: center;
+    height: 100vh;
+    width: 100vw;
+    color: var(--light);
+    color: #F1F1F3;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.event h2 {
+    padding: 1.5em 1em 0 0;
+    font-size: 2em;
+    font-family: 'Gotham Bold';
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.content-wrap {
+    padding-top: 50%;
+    align-self: center;
+    flex-grow: 1;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 1s ease-in-out;
+    will-change: transform, opacity;
+}
+
+.content-wrap.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.month {
+    font-family: 'Gotham Bold';
+    font-size: 1.5em;
+    text-transform: uppercase;
+    color: var(--light);
+    color: #F1F1F3;
+    opacity: .5;
+}
+
+.teens .month {
+    color: var(--blue);
+    color: #003366;
+}
+
+.event h3 {
+    overflow: hidden;
+    font-size: 6em;
+    font-weight: 400;
+    margin-bottom: .5em;
+
+}
+
+.content-wrap hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--light);
+    background-color: #F1F1F3;
+    width: 40%;
+}
+
+.content {
+    width: 20em;
+    padding-top: 2em;
+    margin: 0 4em;
+    line-height: 1.6;
+}
+
+
+
+.colophon {
+    background-image: url(../images/circles.png), url(../images/fiftieth_gold.png),linear-gradient(90deg, rgb(0, 51, 102) 0%,  rgb(123, 24,76)100%);
+   background-repeat: no-repeat;
+   background-position: center, 50% 25%, 50% 17%;
+   background-size: cover, 50%, 100%;
+    min-height: 15em;
+    padding: 10em 0 3em 0;
+    display: flex;
+    flex-direction: column;
+    color: var(--light);
+    color: #F1F1F3;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: end;
+}
+
+
+
+
+.colophon p {
+    max-width: 60%;
+    line-height: 1.6;
+}
+
+.colophon p:nth-of-type(2) {
+    padding-bottom: 3em;
+}
+
+.colophon hr {
+    margin-top: 3em;
+    margin-bottom: .75em;
+    border: 0;
+    height: 2px;
+    background-color: var(--gold);
+    background-color: #8F7242;
+    width: 25%;
+}
+
+.bottom li {
+    list-style-type: none;
+    display: inline;
+    padding-right: 1em;
+}
+
+@media( min-width: 460px) {
+
+    a {
+        color: var(--gold);
+        color: #8F7242;
+        transition: color .5s linear;
+    }
+    
+    a:hover {
+        color: var(--navy);
+        color: #00001E;
+    }
+
+    .event:nth-child(even) .content a:hover {
+        color: var(--light);
+        color: #F1F1F3;
+    }
+    
+    a:visited {
+        color: var(--gold);
+        color: #8F7242;
+    }
+
+
+    .hero {
+        background-size: cover, auto, cover;
+        background-position: center, center, 50% 50%;
+    }
+
+    .logo {
+        padding: 2em 0 0 3em;
+    }
+
+    .logo img {
+        width: 250px;
+        height: auto;
+    }
+    
+    .title {
+        padding: 1.5em 0 0 .75em;
+        font-size: 7.2em;    
+    }
+    
+    .sub-title {
+        padding-left: 4em;
+        font-size: 1.5em;
+        text-transform: uppercase;
+    }
+
+    .arrows {	
+        display: block;
+        padding-top: 50%;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .decades {
+        display: block;
+    }
+
+
+
+    .seventies .event,  .eighties .event, .nineties .event, .aughts .event, .teens .event, .twenties .event {
+        background-color: #fff;
+        background-size: 10%, 50%;
+        background-position:  top 1.5em left 1.5em, left;
+    }
+
+
+
+    .event {
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: minmax(min-content, 1fr) minmax(min-content, 1fr);
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .event h2 {
+        flex: none;
+        overflow: hidden;
+        place-self: start;
+        padding: 2em 0 0 6em;
+    }
+
+    .event .left-col {
+        opacity: 0;
+        transform: scale(0.9);
+        filter: drop-shadow(8px 8px 5px rgba(0, 0, 0, 0.4));
+        transition: all 1s ease-in-out;
+        will-change: transform, opacity;
+        -ms-grid-column: 1;
+        grid-column: 1;
+        display: flex;
+        flex-basis: 33%;
+        flex-grow: 2;
+        max-width: 100%;
+    } 
+
+    .event .left-col.is-visible {
+        opacity: 1;
+    }
+
+    .content-wrap {
+        padding: 0;
+        -ms-grid-column: 2;
+        grid-column: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+    .event .month {
+        color: var(--gold);
+        color: #8F7242;
+    }
+    .event h3 {
+        color: var(--blue);
+        color: #003366;
+        font-size: 7.8em;
+    }
+
+    .content-wrap hr {
+        background-color: var(--blue);
+        background-color: #003366;
+    }
+
+    .event .content {
+        color: #000;
+    }
+
+    .event:nth-child(even) {
+        background-color: var(--navy);
+        background-color: #00001E;
+    }
+
+    .event:nth-child(even) h3,  .event:nth-child(even) .content{
+        color: var(--light);
+        color: #F1F1F3;
+    }
+
+    .event:nth-child(even) hr {
+        background-color: var(--light);
+        background-color: #F1F1F3;
+    }
+
+    .colophon {
+        background-size: cover, 22%, 100%;
+    }
+
+}
+
+@media( min-width: 460px) and (max-width: 1400px) and (orientation: landscape) {
+    .seventies .event,  .eighties .event, .nineties .event, .aughts .event, .teens .event, .twenties .event {
+        background-size: 10%, 50% 100%;
+    }
+}
+
+/* SVG Arrows */
+
+
+
+.arrows path {
+    stroke: var(--light);
+    stroke :#F1F1F3;
+	fill: transparent;
+	stroke-width: 1px;	
+	animation: arrow 2s infinite;
+	-webkit-animation: arrow 2s infinite; 
+}
+
+@keyframes arrow
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+.arrows path.a1 {
+	animation-delay:-1s;
+	-webkit-animation-delay:-1s; /* Safari 和 Chrome */
+}
