@@ -75,14 +75,14 @@ a:visited {
     color: #8F7242;
 }
 
-.teens a {
+/* .teens a {
     color: var(--blue);
     color: #003366;
 }
 
 .teens a:hover {
     color: var(--gold);
-}
+} */
 
 
 main {
